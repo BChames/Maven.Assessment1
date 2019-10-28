@@ -9,6 +9,9 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
+
+
+
         return null;
     }
 
@@ -17,6 +20,17 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
+/*
+        int count = 0;
+        String[] newArr = new String[ str.length() ];
+        for( int i = str.length() - 1 ; i >= 0 ; i-- ){
+            newArr[count] = str;
+            count++;
+
+        }
+
+
+ */
         return null;
     }
 
