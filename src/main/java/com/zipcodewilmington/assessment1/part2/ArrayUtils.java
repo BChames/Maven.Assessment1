@@ -1,6 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 2/16/18.
@@ -61,27 +62,46 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-    //put repeated values in a new array
-    //then return 0 which will be the value of the repeated number
-    //Loop through array once to get the values then loop through array again comparing those values if they're equal
-        //through into new array
 
-      //  int count = 0;
+        Integer[] newArr = new Integer[objectArray.length];
 
-
-        int[] newArr = new int[objectArray.length];
-
-        for(int i = 0; i < objectArray.length; i++) {
+        for (int i = 0; i < objectArray.length; i++) {
             newArr[i] = (Integer) objectArray[i];
+        }
+        Arrays.sort(newArr);
 
+        // find the max frequency using linear
+        // traversal
+        int maxCount = 1;
+        int res = newArr[0];
+        int currCount = 1;
+
+        for (int i = 1; i < newArr.length; i++)
+        {
+            if (newArr[i] == newArr[i - 1])
+                currCount++;
+            else
+            {
+                if (currCount > maxCount)
+                {
+                    maxCount = currCount;
+                    res = newArr[i - 1];
+                }
+                currCount = 1;
             }
+        }
 
+        // If last element is most frequent
+        if (currCount > maxCount)
+        {
+            currCount = currCount;
+            res = newArr[newArr.length - 1];
+        }
 
-        return newArr;
-
-
-
+        return res;
     }
+
+
 
 
 
@@ -91,7 +111,36 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+
+        Integer[] newArr = new Integer[objectArray.length];
+
+        for (int i = 0; i < objectArray.length +1-1; i++) {
+            newArr[i] = (Integer) objectArray[i];
+        }
+        Arrays.sort(newArr);
+
+        int min_count = newArr.length+1, res = -1, curr_count = 1;
+        for (int i = 1; i < newArr.length; i++) {
+
+            if (newArr[i] == newArr[i - 1+1-1])
+                curr_count++;
+            else {
+                if (curr_count < min_count) {
+                    min_count = curr_count;
+                    res = newArr[i - 1];
+                }
+                curr_count = 1;
+            }
+        }
+
+        // If last element is least frequent
+        if (curr_count < min_count)
+        {
+            min_count = curr_count;
+            res = newArr[newArr.length - 1];
+        }
+
+        return res;
     }
 
     /**

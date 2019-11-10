@@ -13,7 +13,7 @@ public class Cat extends Pet {
 
     public Cat(String name, Integer age) {
         super.name = "Name of Cat";
-        this.age = 0;
+        this.age = Integer.MAX_VALUE;
 
     }
 

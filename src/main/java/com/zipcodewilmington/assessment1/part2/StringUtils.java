@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -69,8 +71,22 @@ public class StringUtils {
      * given a string and index, return an identical string excluding the character at the specified index
      */
     public static String removeCharacterAtIndex(String str, int index) {
-return null;
+
+        String[] originalString = str.split("");
+        String[] newStrArr = new String[str.length() -1];
+        int count = 0;
+
+        for(int i = 0; i < newStrArr.length; i++){
+
+            if(originalString[i] != originalString[index]){
+                newStrArr[count] += originalString[i] ;
+            }
+        }
+
+        return Arrays.toString(newStrArr);
 
     }
+
+
 
 }
